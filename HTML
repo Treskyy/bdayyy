@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Sheila 🎉</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ffdee9, #b5fffc);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      max-width: 400px;
+      animation: fadeIn 1s ease-out;
+      position: relative;
+      z-index: 10;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      
+      border-radius: 10px;
+      background: #ff80ab;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+    .hidden {
+      display: none;
+      margin-top: 15px;
+      font-size: 18px;
+      color: #444;
+    }
+    .hug {
+      animation: hug 0.8s ease-in-out;
+    }
+    .cake {
+      font-size: 60px;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      z-index: 5;
+    }
+    .fireworks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .firework {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: explode 3s infinite;
+    }
+    .firework:nth-child(1) { left: 20%; top: 20%; background: #ff0000; animation-delay: 0s; }
+    .firework:nth-child(2) { left: 40%; top: 30%; background: #00ff00; animation-delay: 0.5s; }
+    .firework:nth-child(3) { left: 60%; top: 25%; background: #0000ff; animation-delay: 1s; }
+    .firework:nth-child(4) { left: 80%; top: 35%; background: #ffff00; animation-delay: 1.5s; }
+    .firework:nth-child(5) { left: 30%; top: 40%; background: #ff00ff; animation-delay: 2s; }
+    .firework:nth-child(6) { left: 70%; top: 45%; background: #00ffff; animation-delay: 2.5s; }
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: float 4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+    .heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+    .heart:nth-child(4) { left: 40%; animation-delay: 3s; }
+    .heart:nth-child(5) { left: 50%; animation-delay: 4s; }
+    .heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+    .heart:nth-child(7) { left: 70%; animation-delay: 6s; }
+    .heart:nth-child(8) { left: 80%; animation-delay: 7s; }
+    .heart:nth-child(9) { left: 90%; animation-delay: 8s; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes hug {
+      0% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.1) rotate(5deg); }
+      50% { transform: scale(1.2) rotate(0deg); }
+      75% { transform: scale(1.1) rotate(-5deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-20px); }
+      60% { transform: translateX(-50%) translateY(-10px); }
+    }
+    @keyframes explode {
+      0% { transform: scale(0); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(0); opacity: 0; }
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cake">🎂</div>
+  <div class="fireworks">
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+  </div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="card">
+    <h2>🎂 Happy Birthday, Kak Sheila 🎂</h2>
+    <p>Semoga hari ini penuh senyum dan hangat kayak pelukan yang sering kita bayangin 🤗✨</p>
+    <button onclick="showMessage()">Klik aku 👉👈</button>
+    <p id="secret" class="hidden">Hehe, ini peluk virtual spesial buatmu 🤍🤗</p>
+  </div>
+
+  <script>
+    function showMessage() {
+      const secret = document.getElementById('secret');
+      secret.classList.remove('hidden');
+      secret.classList.add('hug');
+      document.querySelector('.card').classList.add('hug');
+    }
+  </script>
+</body>
+</html>
